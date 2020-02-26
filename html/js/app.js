@@ -208,12 +208,6 @@ Store.prototype.render = function () {
     }
 }
 
-
-
-
-
-
-
 function footerTable() {
 
     var tr = document.createElement('tr');
@@ -296,6 +290,7 @@ var dubai = new Store('Dubai', 11, 38, 3.7);
 var paris = new Store('Paris', 20, 38, 2.3);
 var lima = new Store('Lima', 2, 16, 4.6);
 
+
 // seattle.avgCustomers();
 // seattle.cookiesPurchased();
 // seattle.cookiesSum();
@@ -311,8 +306,40 @@ for (var i = 0; i < Stores.length; i++) {
     // Stores[i].lastColomn();
 }
 
-footerTable();
 
+
+
+var myForm = document.getElementById('infoform');
+myForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+  console.log(event);
+  console.log(event.target);
+  var name = event.target.name.value;
+  console.log(name);
+  var mincus = event.target.mincus.value;
+  console.log(mincus);
+  var maxcus = event.target.maxcus.value;
+  console.log(maxcus);
+  var avg = event.target.avg.value;
+  console.log(avg);
+//   var imgPath = `images/${name}.jpeg`;
+  // function Cat(name,likes,imagePath,goodWithKids,goodWithDogs,goodWithOtherCats,breed)
+  var StoreObject = new Store(name,mincus,maxcus,avg);
+  StoreObject.avgCustomers();
+  StoreObject.cookiesPurchased();
+  StoreObject.cookiesSum();
+  StoreObject.render();
+
+  if (event.target.maxcus.value < event.target.mincus.value ){
+    alert ("Pleasr enter a number more than the minimum! ") ;
+    }
+    addRowBeforeLast ();
+
+})
+
+
+
+footerTable();
 // console.log(Store);
 
 
