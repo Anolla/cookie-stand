@@ -178,16 +178,40 @@ Store.prototype.render = function () {
     trE1.appendChild(td1);
 
 
-
+//you can use hours array instead of cookies array.
     for (var i = 0; i < this.cookies.length; i++) {
 
         var td = document.createElement('td');
         td.textContent = this.cookies[i];
         trE1.appendChild(td);
+
     }
 
+    var td5 = document.createElement('td');
+    td5.textContent= this.sum ;
+    trE1.appendChild(td5);
 
 }
+
+ function lastColomn() {
+
+    for (var s = 0; s < Stores.length; s++) {
+
+
+    var trE1 = document.createElement('tr');
+    tableE1.appendChild(trE1);
+
+        var td4 = document.createElement('td');
+        td4.textContent = this.sum;
+        trE1.appendChild(td4);
+
+    }
+}
+
+
+
+
+
 
 
 function footerTable() {
@@ -198,33 +222,24 @@ function footerTable() {
     var td2 = document.createElement('td');
     td2.textContent = "Totals";
     tr.appendChild(td2);
-
+    var totalOFTotal = 0;
     for (var i = 0; i < hours.length; i++) {
         var tdE5 = document.createElement('td');
         tr.appendChild(tdE5);
         var count = 0;
-        var final = 0;
-
         for (var j = 0; j < Stores.length; j++) {
             count += Stores[j].cookies[i];
         }
         count++
-        final += count;
+        totalOFTotal += count;
         tdE5.textContent = count;
     }
     var td3 = document.createElement('td');
     tr.appendChild(td3);
-    td3.textContent = final;
+    td3.textContent = totalOFTotal;
 
 }
 
-
-function DailyLocationTotal() {
-
-
-
-
-}
 
 // Store.prototype.tabledata = function () {
 
@@ -286,14 +301,16 @@ var lima = new Store('Lima', 2, 16, 4.6);
 // seattle.cookiesSum();
 // seattle.render();
 
+
 for (var i = 0; i < Stores.length; i++) {
 
     Stores[i].avgCustomers();
     Stores[i].cookiesPurchased();
     Stores[i].cookiesSum();
     Stores[i].render();
-
+    // Stores[i].lastColomn();
 }
+
 footerTable();
 
 // console.log(Store);
@@ -513,6 +530,4 @@ footerTable();
 // lima.cookiesSum();
 // lima.render();
 // console.log(lima);
-
-
 
