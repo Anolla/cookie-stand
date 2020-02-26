@@ -230,7 +230,7 @@ function footerTable() {
         for (var j = 0; j < Stores.length; j++) {
             count += Stores[j].cookies[i];
         }
-        count++
+        
         totalOFTotal += count;
         tdE5.textContent = count;
     }
