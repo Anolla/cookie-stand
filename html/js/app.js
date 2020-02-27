@@ -178,7 +178,7 @@ Store.prototype.render = function () {
     trE1.appendChild(td1);
 
 
-//you can use hours array instead of cookies array.
+    //you can use hours array instead of cookies array.
     for (var i = 0; i < this.cookies.length; i++) {
 
         var td = document.createElement('td');
@@ -188,18 +188,18 @@ Store.prototype.render = function () {
     }
 
     var td5 = document.createElement('td');
-    td5.textContent= this.sum ;
+    td5.textContent = this.sum;
     trE1.appendChild(td5);
 
 }
 
- function lastColomn() {
+function lastColomn() {
 
     for (var s = 0; s < Stores.length; s++) {
 
 
-    var trE1 = document.createElement('tr');
-    tableE1.appendChild(trE1);
+        var trE1 = document.createElement('tr');
+        tableE1.appendChild(trE1);
 
         var td4 = document.createElement('td');
         td4.textContent = this.sum;
@@ -207,12 +207,6 @@ Store.prototype.render = function () {
 
     }
 }
-
-
-
-
-
-
 
 function footerTable() {
 
@@ -230,7 +224,7 @@ function footerTable() {
         for (var j = 0; j < Stores.length; j++) {
             count += Stores[j].cookies[i];
         }
-        
+
         totalOFTotal += count;
         tdE5.textContent = count;
     }
@@ -296,6 +290,7 @@ var dubai = new Store('Dubai', 11, 38, 3.7);
 var paris = new Store('Paris', 20, 38, 2.3);
 var lima = new Store('Lima', 2, 16, 4.6);
 
+
 // seattle.avgCustomers();
 // seattle.cookiesPurchased();
 // seattle.cookiesSum();
@@ -311,8 +306,55 @@ for (var i = 0; i < Stores.length; i++) {
     // Stores[i].lastColomn();
 }
 
-footerTable();
 
+
+
+var myForm = document.getElementById('infoform');
+myForm.addEventListener('submit', function (event,Stores) {
+    console.log('helllooo',Stores)
+    event.preventDefault();
+    console.log(event);
+    console.log(event.target);
+    var name = event.target.name.value;
+    console.log(name);
+    var mincus = parseInt(event.target.mincus.value);
+    console.log(mincus);
+    var maxcus = parseInt(event.target.maxcus.value);
+    console.log(maxcus);
+    var avg = parseFloat(event.target.avg.value);
+    console.log(avg);
+    //   var imgPath = `images/${name}.jpeg`;
+    // function Cat(name,likes,imagePath,goodWithKids,goodWithDogs,goodWithOtherCats,breed)
+    // var StoreObject = new Store(name, mincus, maxcus, avg);
+      
+      
+    //   Stores.push(StoreObject);
+     
+
+
+    if (event.target.maxcus.value < event.target.mincus.value) {
+        alert("Pleasr enter a number more than the minimum! ");
+    }
+    else {
+
+        tableE1.removeChild(tableE1.lastChild);
+        var StoreObject = new Store(name, mincus, maxcus, avg);
+        StoreObject.avgCustomers();
+        StoreObject.cookiesPurchased();
+        StoreObject.cookiesSum();
+        // tableE1.innerHTML="";
+        StoreObject.render();
+
+    }
+    footerTable();
+
+    myForm.reset();
+
+})
+
+
+
+footerTable();
 // console.log(Store);
 
 
