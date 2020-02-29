@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab 06</title>
     <link rel="stylesheet" href="/CSS/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <a href="index.html">Return to home page</a>
         <h1>Salmon Cookies</h1>
+        <a href="index.html">Return to home page</a>
         
     </header>
     
@@ -18,20 +19,22 @@
         <form  id ='infoform'>
             <fieldset>
               <legend>Location Information</legend>
+
               <label for="name">Store name</label>
-              <input type="text" id='name'>
-              <br>
+              <input type="text" id='name' required>
+              <br> <br>
               <label for="mincus">  Minimum customers  </label>
-              <input type="text" id='mincus' placeholder="">
-              <br>
+              <input type="text" id='mincus' placeholder="" required>
+              <br> <br>
               <label for="maxcus">Maximum customers </label>
-              <input type="text"  id="maxcus">
-              <br>
+              <input type="text"  id="maxcus" required>
+              <br> <br>
               <label for="avg">Store Average of customers</label>
-              <input type="text" id='avg'>
-              <br>
+              <input type="text" id='avg' required>
+              <br> <br>
               <input type="submit">
             </fieldset>
+            </form>
 
 
         <div id='cities'></div>
