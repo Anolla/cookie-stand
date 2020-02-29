@@ -2,7 +2,7 @@
     color:rgb(68, 65, 65);
 }
 a:hover {
-    background-color:lightseagreen;
+    background-color: white;
     
   }
 
@@ -52,8 +52,7 @@ font-size: larger;
  aside{
     height: 60%;
     width: 50%;
-   
-    z-index: -1;
+
     top: 0;
     right: 0;
     background-color:lightsteelblue;
