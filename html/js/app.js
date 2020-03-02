@@ -334,7 +334,7 @@ myForm.addEventListener('submit', function (event,Stores) {
 
     if (event.target.maxcus.value < event.target.mincus.value) {
         alert("Pleasr enter a number more than the minimum! ");
-        tableE1.innerHTML="";
+      
         
     }
     else {
@@ -346,9 +346,10 @@ myForm.addEventListener('submit', function (event,Stores) {
         StoreObject.cookiesSum();
         
         StoreObject.render();
+        footerTable();
+
 
     }
-    footerTable();
 
     myForm.reset();
 
